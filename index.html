@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abdoul-Mouïz KOUFERIDJI — Data Quality & Data Analyst</title>
+<meta name="description" content="Portfolio d'Abdoul-Mouïz Kouferidji, ingénieur EIGSI 2026 : qualité des données KYC, risk scoring, automatisation et KPI en banque d'investissement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0f1c; --bg2:#101830; --ink:#e8edf7; --mute:#8d99b3; --line:#22304f;
+  --teal:#2dd4bf; --teal-d:#0f766e; --amber:#f5b942; --red:#ff6b6b;
+  --f-d:"Space Grotesk",system-ui,sans-serif; --f-m:"IBM Plex Mono",ui-monospace,monospace;
+}
+:root[data-theme="light"]{--bg:#f6f8fc;--bg2:#e9eef7;--ink:#0d1526;--mute:#52607c;--line:#cbd5e6;--teal:#0f766e;--teal-d:#0f766e;--amber:#b7791f;--red:#c53030}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f8fc;--bg2:#e9eef7;--ink:#0d1526;--mute:#52607c;--line:#cbd5e6;--teal:#0f766e;--teal-d:#0f766e;--amber:#b7791f;--red:#c53030}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-d);line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:96px 0;position:relative}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;margin-bottom:12px;letter-spacing:-.02em}
+.eyebrow{font-family:var(--f-m);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:block}
+.lead{color:var(--mute);max-width:62ch;margin-bottom:40px}
+.mono{font-family:var(--f-m)}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-weight:700;text-decoration:none}
+nav ul{display:flex;gap:22px;list-style:none;font-size:.88rem}
+nav ul a{text-decoration:none;color:var(--mute);transition:color .2s}
+nav ul a:hover{color:var(--teal)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer;font-family:var(--f-m);font-size:.75rem}
+@media(max-width:760px){nav ul{display:none}}
+/* hero */
+#hero{min-height:100svh;display:flex;align-items:center;padding-top:80px;overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+#hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.3fr .8fr;gap:40px;align-items:center}
+@media(max-width:860px){#hero .wrap{grid-template-columns:1fr}}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:99px;padding:5px 14px;font-family:var(--f-m);font-size:.78rem;color:var(--mute);margin-bottom:22px}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(2rem,5.2vw,3.7rem);line-height:1.02;letter-spacing:-.035em;font-weight:700}
+h1 span{display:block;overflow:hidden}
+h1 span b{display:inline-block;font-weight:700;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+h1 span:nth-child(2) b{animation-delay:.15s;color:var(--teal)}
+@keyframes rise{to{transform:none}}
+.role{margin-top:22px;font-size:1.15rem;color:var(--mute);max-width:46ch}
+.role strong{color:var(--ink);font-weight:500}
+.kw{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.kw span{font-family:var(--f-m);font-size:.72rem;letter-spacing:.14em;border:1px solid var(--line);padding:6px 12px;border-radius:6px;color:var(--mute);opacity:0;animation:fade .6s forwards}
+@keyframes fade{to{opacity:1}}
+.cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:500;border:1px solid var(--line);transition:.2s;cursor:pointer;background:none;color:var(--ink);font-family:inherit;font-size:1rem}
+.btn.p{background:var(--teal);color:#04201c;border-color:var(--teal)}
+.btn:hover{transform:translateY(-2px);border-color:var(--teal)}
+.portrait{position:relative;aspect-ratio:4/5;max-width:340px;margin-inline:auto;width:100%}
+.portrait .frame{position:absolute;inset:0;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,var(--bg2),var(--bg));border:1px solid var(--line);display:grid;place-items:center;transform-style:preserve-3d;transition:transform .15s}
+.portrait img{width:100%;height:100%;object-fit:cover;display:none}
+.portrait .mono-init{font-size:5rem;font-weight:700;letter-spacing:-.05em;color:var(--teal);opacity:.85}
+.portrait .tag{position:absolute;font-family:var(--f-m);font-size:.66rem;background:var(--bg);border:1px solid var(--line);padding:4px 9px;border-radius:6px;color:var(--teal);animation:float 5s ease-in-out infinite}
+.portrait .t1{top:6%;left:-4%}.portrait .t2{top:42%;right:-4%;animation-delay:-1.5s;color:var(--amber)}.portrait .t3{bottom:8%;left:-2%;animation-delay:-3s}
+@keyframes float{50%{transform:translateY(-8px)}}
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.metric{border:1px solid var(--line);border-radius:16px;padding:26px;background:var(--bg2)}
+.metric .n{font-size:3rem;font-weight:700;color:var(--teal);line-height:1;letter-spacing:-.03em}
+.metric p{color:var(--mute);margin-top:10px;font-size:.92rem}
+
+.tabs2{display:flex;gap:8px;flex-wrap:wrap;margin:36px 0 18px}
+.tabs2 button{font-family:var(--f-m);font-size:.78rem;padding:9px 14px;border-radius:8px;border:1px solid var(--line);background:none;color:var(--mute);cursor:pointer}
+.tabs2 button[aria-selected=true]{color:var(--teal);border-color:var(--teal);background:color-mix(in srgb,var(--teal) 8%,transparent)}
+.mis{display:none;grid-template-columns:1fr 1fr;gap:16px}.mis.on{display:grid}
+@media(max-width:760px){.mis{grid-template-columns:1fr}}
+.mis .box{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--bg2)}
+.mis .box h4{font-family:var(--f-m);font-size:.74rem;letter-spacing:.16em;color:var(--teal);margin-bottom:10px}
+.mis .box.va h4{color:var(--amber)}
+.mis ul{padding-left:18px;color:var(--mute);font-size:.92rem}.mis li{margin:5px 0}
+.mis .full{grid-column:1/-1}
+.soft{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.soft .it{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--bg2)}
+.soft .it b{display:block;margin-bottom:6px}.soft .it span{color:var(--mute);font-size:.88rem}
+.soft .it em{display:block;font-style:normal;font-family:var(--f-m);font-size:.7rem;color:var(--teal);margin-top:10px}
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+/* cols */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.col{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--bg2)}
+.col h3{font-family:var(--f-m);font-size:.82rem;letter-spacing:.2em;margin-bottom:6px}
+.col.b h3{color:var(--teal)}.col.x h3{color:var(--amber)}.col.e h3{color:var(--mute)}
+.col small{color:var(--mute);display:block;margin-bottom:18px}
+.col li{list-style:none;padding:12px 0;border-top:1px solid var(--line)}
+.col li b{display:block;font-weight:500}
+.col li span{color:var(--mute);font-size:.88rem}
+/* lab */
+.lab{border:1px solid var(--line);border-radius:20px;background:var(--bg2);padding:26px}
+.lab-top{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:22px}
+.fict{font-family:var(--f-m);font-size:.72rem;color:var(--amber);border:1px dashed var(--amber);padding:4px 10px;border-radius:6px}
+.lab-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}
+@media(max-width:860px){.lab-grid{grid-template-columns:1fr}}
+.rule{display:grid;grid-template-columns:28px 1fr 64px;gap:10px;align-items:center;padding:7px 0;cursor:pointer;border-radius:8px}
+.rule:hover,.rule.sel{background:color-mix(in srgb,var(--teal) 10%,transparent)}
+.rule .id{font-family:var(--f-m);font-size:.72rem;color:var(--mute)}
+.rule .nm{font-size:.85rem;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar{height:8px;background:var(--line);border-radius:5px;overflow:hidden;position:relative}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--red);transition:width .9s,background .4s}
+.bar i.ok{background:var(--teal)}
+.rule .pc{font-family:var(--f-m);font-size:.8rem;text-align:right}
+.panel{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--bg)}
+.panel h4{font-size:.95rem;margin-bottom:6px}
+.panel p{color:var(--mute);font-size:.88rem}
+.steps{display:flex;gap:6px;margin:16px 0;flex-wrap:wrap}
+.steps span{font-family:var(--f-m);font-size:.68rem;padding:4px 8px;border-radius:5px;border:1px solid var(--line);color:var(--mute)}
+.steps span.on{border-color:var(--teal);color:var(--teal)}
+.steps span.done{background:var(--teal-d);color:#fff;border-color:var(--teal-d)}
+.kpi{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap}
+.kpi div{font-family:var(--f-m);font-size:.74rem;color:var(--mute)}
+.kpi b{display:block;font-size:1.5rem;color:var(--ink);font-family:var(--f-d)}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:8px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
+th{font-family:var(--f-m);font-weight:400;font-size:.7rem;color:var(--mute);letter-spacing:.08em}
+td.chg{color:var(--amber)}tr.flag td{background:color-mix(in srgb,var(--amber) 12%,transparent)}
+.pill{font-family:var(--f-m);font-size:.68rem;padding:2px 7px;border-radius:5px;border:1px solid var(--line)}
+.pill.H{color:var(--red);border-color:var(--red)}.pill.M{color:var(--amber);border-color:var(--amber)}.pill.L{color:var(--teal);border-color:var(--teal)}
+.tabs{display:flex;gap:8px;margin:34px 0 10px}
+.tabs button{font-family:var(--f-m);font-size:.78rem;padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:none;color:var(--mute);cursor:pointer}
+.tabs button[aria-selected=true]{color:var(--teal);border-color:var(--teal)}
+/* pipeline */
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-bottom:24px}
+@media(max-width:760px){.pipe{grid-template-columns:1fr 1fr;gap:12px}.pipe:before{display:none}}
+.pipe:before{content:"";position:absolute;top:26px;left:12%;right:12%;height:2px;background:var(--line)}
+.pipe:after{content:"";position:absolute;top:26px;left:12%;height:2px;width:var(--p,0%);background:var(--teal);transition:width .6s}
+.node{position:relative;z-index:1;text-align:center;background:none;border:0;color:var(--ink);cursor:pointer;font-family:inherit}
+.node .dot{width:54px;height:54px;margin:0 auto 10px;border-radius:50%;border:2px solid var(--line);background:var(--bg);display:grid;place-items:center;font-family:var(--f-m);transition:.3s}
+.node[aria-selected=true] .dot{border-color:var(--teal);color:var(--teal);transform:scale(1.12)}
+.node span{font-size:.82rem;color:var(--mute)}
+/* timeline */
+.tl{border-left:2px solid var(--line);margin-left:6px}
+.tl article{padding:0 0 34px 28px;position:relative}
+.tl article:before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--teal)}
+.tl time{font-family:var(--f-m);font-size:.76rem;color:var(--mute)}
+.tl h3{font-size:1.15rem;font-weight:500}
+.tl h3 em{font-style:normal;color:var(--teal)}
+.tl ul{margin-top:8px;color:var(--mute);font-size:.92rem;padding-left:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-family:var(--f-m);font-size:.78rem;border:1px solid var(--line);padding:6px 12px;border-radius:8px}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.sk h3{font-family:var(--f-m);font-size:.78rem;letter-spacing:.16em;color:var(--teal);margin-bottom:12px}
+footer{border-top:1px solid var(--line);padding:60px 0;text-align:center;color:var(--mute);font-size:.88rem}
+footer h2{color:var(--ink)}
+.links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px 0}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}h1 span b{transform:none}.kw span{opacity:1}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="brand" href="#hero">A.K<span style="color:var(--teal)">.</span> <small class="mono" style="color:var(--mute);font-weight:400;font-size:.7rem">Data · Qualité · Risque</small></a>
+<ul><li><a href="#projet">01 SGCIB</a></li><li><a href="#lab">02 Démo</a></li><li><a href="#realisations">03 Réalisations</a></li><li><a href="#parcours">04 Parcours</a></li><li><a href="#techno">05 Compétences</a></li><li><a href="#contact">Contact</a></li></ul>
+<button id="theme" aria-label="Changer de thème">thème</button></div></nav>
+
+<header id="hero">
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="wrap">
+<div>
+<span class="eyebrow">Data Quality Analyst &amp; ingénieur EIGSI</span>
+<h1><span><b>Des données fiables,</b></span><span><b>des décisions justes.</b></span></h1>
+<p class="role"><strong>8 règles de contrôle sur 12 au-dessus de 99 % de données correctes</strong> sur le périmètre KYC que j'ai remédié chez SGCIB. Je suis Abdoul-Mouïz, et je veux poursuivre en banque, assurance ou finance, ou dans un secteur où la donnée et le risque comptent autant.</p>
+<div class="badge" style="margin-top:20px"><i></i>Disponible · CDI ou alternance</div>
+<div class="kw" id="kw"></div>
+<div class="cta"><a class="btn p" href="#lab">Relever le défi · 2 min</a><a class="btn" href="#projet">Voir le projet</a></div>
+</div>
+<div class="portrait" id="portrait">
+<div class="frame" id="frame"><div class="mono-init" id="init">AK</div></div>
+<span class="tag t1">KYC / AML</span><span class="tag t2">99 % ✓</span><span class="tag t3">SQL · Power Query</span>
+</div>
+</div>
+</header>
+
+<section id="approche"><div class="wrap">
+<span class="eyebrow rv">// Approche</span>
+<h2 class="rv">Une donnée n'est utile que si on peut lui faire confiance.</h2>
+<p class="lead rv">Je travaille là où la qualité des données rencontre le risque : des règles claires, des contrôles reproductibles, des indicateurs que le management comprend. Ma méthode tient en trois mots : mesurer, corriger, tracer.</p>
+<div class="cols">
+<div class="col b rv"><h3>01 · DATA QUALITY</h3><small>Règles de contrôle et KPI</small><span style="color:var(--mute);font-size:.92rem">Définir les règles, mesurer le taux de données correctes, trouver les causes racines.</span></div>
+<div class="col x rv"><h3>02 · KYC / RISK SCORING</h3><small>Réconciliation et risque client</small><span style="color:var(--mute);font-size:.92rem">Comparer les référentiels, recalculer le risque en continu, valider à deux.</span></div>
+<div class="col e rv"><h3>03 · AUTOMATISATION</h3><small>Templates et flux reproductibles</small><span style="color:var(--mute);font-size:.92rem">Power Query et SQL pour remplacer le manuel par un cycle mensuel traçable.</span></div>
+</div>
+<div class="metrics" style="margin-top:28px">
+<div class="metric rv"><p class="mono" style="margin:0 0 6px">FORMATION</p><b>EIGSI 2026</b><p>Ingénieur généraliste, Entreprise du Futur</p></div>
+<div class="metric rv"><p class="mono" style="margin:0 0 6px">DERNIÈRE EXPÉRIENCE</p><b>SGCIB</b><p>Chargé de Processus KYC – Data Quality</p></div>
+<div class="metric rv"><p class="mono" style="margin:0 0 6px">RECHERCHE</p><b>CDI · Alternance</b><p>Data Analyst, Data Quality, Business Analyst</p></div>
+<div class="metric rv"><p class="mono" style="margin:0 0 6px">LIEU · DISPO</p><b>Pontoise (95)</b><p>Disponible immédiatement</p></div>
+</div></div></section>
+<section id="projet"><div class="wrap">
+<span class="eyebrow rv">// § 01 · Projet phare</span>
+<h2 class="rv">Remédiation des données KYC et risk scoring en continu</h2>
+<p class="lead rv">Contrat de professionnalisation chez SGCIB (09/2025 – 09/2026), au sein de l'équipe KYC / Client Data. Mon rapport de fin d'études de 43 pages détaille la méthode. Les chiffres ci-dessous viennent de ce rapport.</p>
+<div class="metrics">
+<div class="metric rv"><div class="n"><span data-n="12">0</span></div><p>règles de contrôle suivies par KPI</p></div>
+<div class="metric rv"><div class="n"><span data-n="8">0</span></div><p>règles au-dessus de 99 % de données correctes</p></div>
+<div class="metric rv"><div class="n"><span data-n="3">0</span></div><p>règles ajoutées grâce à l'analyse des KPI</p></div>
+<div class="metric rv"><div class="n"><span data-n="4">0</span></div><p>régions couvertes par le recalcul du risque</p></div>
+</div>
+<div class="tabs2" role="tablist" id="mtabs">
+<button role="tab" aria-selected="true" data-m="0">M1 · Remédiation des données</button>
+<button role="tab" aria-selected="false" data-m="1">M2 · Risk scoring mensuel</button>
+<button role="tab" aria-selected="false" data-m="2">M3 · Contrôles, KPI et reporting</button>
+<button role="tab" aria-selected="false" data-m="3">M4 · Amélioration continue</button></div>
+<div class="mis on" data-p="0">
+<div class="box full"><h4>CONTEXTE</h4><p style="color:var(--mute);font-size:.92rem">Des mises à jour de masse par scripts (cessions de filiales, projets) peuvent créer des incohérences entre référentiels : donnée liée modifiée, synchronisation imparfaite, lien détaché. Ces écarts faussent le risque d'un tiers, donc les décisions KYC.</p></div>
+<div class="box"><h4>CE QUE J'AI FAIT</h4><ul><li>Analysé les écarts entre les référentiels clients et risques, puis cherché les causes racines.</li><li>Conçu le processus en 9 étapes : analyse, détection, solutions, accords, remédiation, vérification, reporting.</li><li>Construit la chaîne de templates et le tracker partagé pour éviter les doublons de traitement entre équipes.</li><li>Formalisé un circuit à double approbation, adopté par l'équipe.</li></ul></div>
+<div class="box va"><h4>VALEUR AJOUTÉE</h4><ul><li>8 règles sur 12 au-dessus de 99 % de données correctes.</li><li>3 nouvelles règles de contrôle créées à partir de l'analyse des KPI.</li><li>Un processus documenté, qui ne dépend plus d'une seule personne.</li><li>Des remédiations tracées, donc auditables.</li></ul></div>
+</div>
+<div class="mis" data-p="1">
+<div class="box full"><h4>CONTEXTE</h4><p style="color:var(--mute);font-size:.92rem">Le niveau de risque d'un client évolue avec son environnement : classification GAFI du pays, activité, actionnariat. Chaque mois, une simulation recalcule le risque, et il faut traiter les tiers dont le niveau change.</p></div>
+<div class="box"><h4>CE QUE J'AI FAIT</h4><ul><li>Extrait les données validées, simulées et la population globale du référentiel client.</li><li>Appliqué les templates : écarts de facteurs, puis tiers dont le niveau de risque change réellement.</li><li>Réparti les tiers par équipe et par région, avec les indicateurs de chaque périmètre.</li><li>Piloté le circuit : mail d'action, exclusions, confirmation hiérarchique, mise à jour, communication de clôture.</li></ul></div>
+<div class="box va"><h4>VALEUR AJOUTÉE</h4><ul><li>Cycle mensuel mené en autonomie sur 4 régions.</li><li>Contrôles de volumétrie à chaque étape : aucun tiers perdu.</li><li>Documentation complète : règles de chaque template, critères d'exclusion, circuit de validation.</li><li>Reprise possible par un nouveau collaborateur sans rupture.</li></ul></div>
+</div>
+<div class="mis" data-p="2">
+<div class="box"><h4>CE QUE J'AI FAIT</h4><ul><li>Réalisé des extractions SAP BusinessObjects et des analyses SQL (jointures, comparaison de clés, intégrité).</li><li>Traité les données avec Excel et Power Query : doublons, formats, rapprochements.</li><li>Calculé les KPI : anomalies identifiées, remédiées, taux de données correctes, taux de tiers réévalués.</li><li>Produit des graphiques par équipe et par région pour le management.</li></ul></div>
+<div class="box va"><h4>VALEUR AJOUTÉE</h4><ul><li>Pilotage de la qualité par la mesure, règle par règle.</li><li>Exclusion des faux positifs pour des KPI fiables.</li><li>Reportings présentés au management et alimentant la prise de décision.</li><li>Tableaux de bord dynamiques qui se recalculent à chaque nouveau mois.</li></ul></div>
+</div>
+<div class="mis" data-p="3">
+<div class="box full"><h4>UNE INITIATIVE NÉE DE L'EXPÉRIENCE</h4><p style="color:var(--mute);font-size:.92rem">En gérant le cycle mois après mois, j'ai constaté que les revues KYC s'ouvrent sur les entités mères (Head Office) puis se déploient sur les filiales, alors que la mise à jour du risque ne suit pas toujours cet ordre. Cela peut créer des incohérences temporaires entre une mère et ses filiales.</p></div>
+<div class="box"><h4>CE QUE J'AI PROPOSÉ</h4><ul><li>Prioriser les entités mères dans le cycle de remédiation.</li><li>Étendre le processus à tous les contrôles mensuels, avec des templates standardisés.</li><li>Renforcer la gouvernance : référentiel de référence par champ (golden source), responsable de donnée (data owner), traçabilité (data lineage).</li></ul></div>
+<div class="box va"><h4>VALEUR AJOUTÉE</h4><ul><li>Une posture d'ingénieur qui observe, questionne et propose.</li><li>Des pistes d'automatisation : scripts de KPI, prévention à la source.</li><li>Un lien clair entre mission opérationnelle et amélioration continue.</li></ul></div>
+</div>
+<h3 class="rv" style="margin:56px 0 8px;font-size:1.5rem">Ce que cette expérience m'a apporté</h3>
+<p class="lead rv" style="margin-bottom:22px">Chaque compétence est reliée à une situation vécue.</p>
+<div class="soft">
+<div class="it rv"><b>Rigueur et fiabilité</b><span>Une erreur sur une donnée peut avoir des conséquences réglementaires. Vérification systématique et double validation sont devenues des réflexes.</span><em>Preuve : circuit à double approbation</em></div>
+<div class="it rv"><b>Autonomie et initiative</b><span>Mission nouvelle pour l'équipe : j'ai structuré ma démarche tout en sollicitant les bons interlocuteurs au bon moment.</span><em>Preuve : cycle mensuel mené seul sur 4 régions</em></div>
+<div class="it rv"><b>Communication adaptée</b><span>Technique avec les data analysts, synthétique avec le management, pédagogique avec les métiers.</span><em>Preuve : KPI présentés au management</em></div>
+<div class="it rv"><b>Esprit collaboratif</b><span>Coordination d'équipes aux priorités différentes : analystes, onboarding, clôture, Compliance, Risk, Front Office.</span><em>Preuve : 4 à 5 équipes, tracker partagé</em></div>
+<div class="it rv"><b>Gestion de projet</b><span>Périmètre, parties prenantes, WBS, jalons et ajustements face aux aléas (accès aux données, disponibilité).</span><em>Preuve : jalons respectés dans l'ensemble</em></div>
+<div class="it rv"><b>Adaptabilité</b><span>Jongler entre le travail de fond et les urgences du quotidien dans un environnement international et hiérarchisé.</span><em>Preuve : projet et run mensuel menés en parallèle</em></div>
+</div>
+<h3 class="rv" style="margin:56px 0 8px;font-size:1.5rem">Compétences métier acquises</h3>
+<div class="chips rv" style="margin-top:14px"><span>LCB-FT</span><span>KYC / AML</span><span>Directives AMLD4 · 5 · 6</span><span>Classification GAFI</span><span>Bénéficiaire effectif</span><span>Vigilance renforcée</span><span>Cycle de vie client</span><span>Risk scoring</span><span>Golden source</span><span>Data lineage</span><span>Confidentialité des données</span></div>
+</div></section>
+
+<section id="lab"><div class="wrap">
+<span class="eyebrow rv">// § 01 bis · Défi interactif</span>
+<h2 class="rv">Jeu de test fictif : remédiez les anomalies</h2>
+<p class="lead rv">Une simulation pédagogique d'un cycle de qualité de données. Cliquez sur une règle pour voir son anomalie type, puis lancez le cycle.</p>
+<div class="lab rv">
+<div class="lab-top"><span class="fict">DONNÉES FICTIVES · aucune donnée réelle</span><div><button class="btn p" id="run">Lancer un cycle</button> <button class="btn" id="reset">Réinitialiser</button></div></div>
+<div class="lab-grid">
+<div id="rules" aria-label="Règles de contrôle"></div>
+<div>
+<div class="panel"><h4 id="rt">Choisissez une règle</h4><p id="rd">Chaque règle mesure la part de données conformes sur une population donnée.</p></div>
+<div class="steps" id="steps"><span>1 Scoping</span><span>2 Exclusions</span><span>3 Mass update</span><span>4 Vérification</span></div>
+<div class="kpi"><div><b id="k1">0</b>anomalies</div><div><b id="k2">0</b>remédiées</div><div><b id="k3">0 %</b>données correctes</div></div>
+<p class="mono" style="font-size:.7rem;color:var(--mute);margin-top:14px">Taux = 1 − (anomalies restantes / population totale)</p>
+</div></div>
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="a">Risk scoring : mois validé vs simulé</button></div>
+<p class="mono" style="font-size:.74rem;color:var(--mute)">Tous les écarts de facteurs sont listés ; seuls ceux qui changent le niveau de risque sont retenus pour la remédiation.</p>
+<div style="overflow-x:auto"><table style="min-width:560px"><thead><tr><th>TIERS</th><th>PAYS</th><th>SECTEUR</th><th>NIVEAU VALIDÉ</th><th>NIVEAU SIMULÉ</th><th></th></tr></thead><tbody id="tb"></tbody></table></div>
+<label class="mono" style="font-size:.76rem;color:var(--mute);display:block;margin-top:14px"><input type="checkbox" id="onlyChg"> Afficher seulement les changements de niveau</label>
+</div></div></section>
+<section id="process"><div class="wrap">
+<span class="eyebrow rv">// § 02 · Un projet, de A à Z</span>
+<h2 class="rv">Comprendre. Construire. Livrer. Convaincre.</h2>
+<p class="lead rv">Le même projet, vu en quatre temps. Chaque temps renvoie à une partie de mon rapport.</p>
+<div class="pipe rv" id="pipe" role="tablist"></div>
+<div class="panel rv"><h4 id="pt"></h4><p id="pd"></p><p class="mono" id="pp" style="font-size:.74rem;color:var(--teal);margin-top:10px"></p></div>
+</div></section>
+<section id="realisations"><div class="wrap">
+<span class="eyebrow rv">// § 03 · Six autres réalisations</span>
+<h2 class="rv">Au-delà du projet phare</h2>
+<p class="lead rv">Missions, certifications et projets. Ce qui est en cours est signalé comme tel.</p>
+<div class="cols">
+<div class="col rv"><h3 style="color:var(--teal)">P-02 · RAPPORT</h3><b>Rapport de fin d'études</b><p style="color:var(--mute);font-size:.9rem;margin:6px 0">Méthode, outils, résultats et perspectives de la remédiation KYC, rédigés pour l'école et l'entreprise.</p><p><strong>43 pages</strong></p></div>
+<div class="col rv"><h3 style="color:var(--teal)">P-03 · AUTOMATISATION</h3><b>Tunnel de vente System.io</b><p style="color:var(--mute);font-size:.9rem;margin:6px 0">Tunnel, e-mails et automatisations déployés en autonomie chez P&amp;B Consulting.</p><p><strong>Tunnel complet livré</strong></p></div>
+<div class="col rv"><h3 style="color:var(--teal)">P-04 · DSI</h3><b>Support et documentation IT</b><p style="color:var(--mute);font-size:.9rem;margin:6px 0">Bases de données internes, documentation des plateformes et tickets de maintenance chez NSIA Assurance Vie.</p><p><strong>Direction informatique</strong></p></div>
+<div class="col rv"><h3 style="color:var(--teal)">P-05 · AMÉLIORATION CONTINUE</h3><b>Lean Six Sigma</b><p style="color:var(--mute);font-size:.9rem;margin:6px 0">Yellow Belt (7-Shapes) et White Belt (ATU Sligo), appliqués à la logique de causes racines.</p><p><strong>2 certifications</strong></p></div>
+<div class="col rv"><h3 style="color:var(--teal)">P-06 · ANGLAIS</h3><b>Linguaskill B2</b><p style="color:var(--mute);font-size:.9rem;margin:6px 0">Préparation méthodique du niveau B2 exigé pour le diplôme d'ingénieur.</p><p><strong>145 → 162 en 2 mois</strong></p></div>
+<div class="col rv"><h3 style="color:var(--amber)">P-07 · EN CONCEPTION</h3><b>B2Ingé</b><p style="color:var(--mute);font-size:.9rem;margin:6px 0">Application web pour aider les étudiants ingénieurs francophones à valider le B2. Stack prévue : Next.js et Supabase. Pas encore en ligne.</p><p><strong>Projet en cours</strong></p></div>
+</div></div></section>
+
+<section id="parcours"><div class="wrap">
+<span class="eyebrow rv">// 04 · Parcours</span>
+<h2 class="rv">Expériences et formation</h2><br>
+<div class="tl">
+<article class="rv"><time>09/2025 – 09/2026 · La Défense</time><h3>Chargé de Processus KYC – Data Quality, <em>SGCIB</em></h3><ul>
+<li>Pilotage de la remédiation des données KYC entre Head Office et Domestic Office.</li>
+<li>Automatisation de la détection des écarts via un template réutilisable.</li>
+<li>Recalcul continu du risk scoring clients, avec double validation et processus documenté.</li>
+<li>Collaboration avec 4 à 5 équipes : Compliance, Risk, Front Office.</li></ul></article>
+<article class="rv"><time>05/2025 – 09/2025 · Aytré</time><h3>Assistant Consultant, <em>P&amp;B Consulting</em> (QHSE / RSE)</h3><ul><li>Audit QHSE / RSE, accompagnement de formations ; tunnel de vente complet déployé sur System.io.</li></ul></article>
+<article class="rv"><time>07/2022 – 08/2022 · Cotonou</time><h3>Assistant Département Informatique, <em>NSIA Assurance Vie</em></h3><ul><li>Bases de données internes, documentation des plateformes, tickets de maintenance.</li></ul></article>
+<article class="rv"><time>2023 – 2026 · La Rochelle</time><h3>Diplôme d'Ingénieur Généraliste, <em>EIGSI</em></h3><ul><li>Dominante Entreprise du Futur : transformation digitale, Industrie 4.0.</li></ul></article>
+<article class="rv"><time>2021 – 2023 · Bénin</time><h3>Classe préparatoire (CPGE), Mathématiques et Physique</h3></article>
+</div>
+<div class="sk" style="margin-top:50px">
+<div class="rv"><h3>DONNÉES &amp; ANALYSE</h3><div class="chips"><span>SQL</span><span>Power BI</span><span>Power Query</span><span>VBA</span><span>Excel avancé</span></div></div>
+<div class="rv"><h3>DOMAINES</h3><div class="chips"><span>Data Quality</span><span>KYC / AML</span><span>Risk Scoring</span><span>Lean Six Sigma</span></div></div>
+<div class="rv"><h3>DÉVELOPPEMENT</h3><div class="chips"><span>Python</span><span>Java</span><span>C</span><span>HTML/CSS</span><span>PHP</span></div></div>
+<div class="rv"><h3>LANGUES</h3><div class="chips"><span>Français · natif</span><span>Anglais · B2</span><span>Allemand · A1</span></div></div>
+</div></div></section>
+<section id="techno"><div class="wrap">
+<span class="eyebrow rv">// 05 · Compétences</span>
+<h2 class="rv">Construire. Expérimenter. Explorer.</h2>
+<p class="lead rv">Je sépare ce que j'ai réellement construit de ce que j'explore encore. Chaque ligne renvoie à une réalisation ou à un projet en cours.</p>
+<div class="cols">
+<div class="col b rv"><h3>BUILD</h3><small>Construit et utilisé en mission</small><ul>
+<li><b>Excel / Power Query</b><span>Flux mensuel reproductible : consolidation, doublons, formats, rapprochement de référentiels.</span></li>
+<li><b>SQL</b><span>Extraction de populations, jointures, détection d'écarts entre tables, contrôles d'intégrité.</span></li>
+<li><b>Templates d'analyse</b><span>Chaîne de 4 templates : préparation, écarts de facteurs, changements de niveau de risque, partage par équipe.</span></li>
+<li><b>KPI qualité de données</b><span>Anomalies, remédiations, taux de données correctes, présentés au management.</span></li></ul></div>
+<div class="col x rv"><h3>EXPERIMENT</h3><small>Pratiqué, pas encore en production</small><ul>
+<li><b>Power BI</b><span>Tableaux de bord de suivi qualité à partir des KPI existants.</span></li>
+<li><b>Python</b><span>Contrôles de qualité scriptés en complément des templates.</span></li>
+<li><b>Macros &amp; VBA</b><span>Automatisation de tâches répétitives sous Excel.</span></li></ul></div>
+<div class="col e rv"><h3>EXPLORE</h3><small>En cours d'étude</small><ul>
+<li><b>Gouvernance des données</b><span>Description formelle des données, traçabilité (data lineage).</span></li>
+<li><b>IA appliquée à la donnée</b><span>Détection d'anomalies et aide à l'analyse des causes racines.</span></li>
+<li><b>Ingénierie de la donnée</b><span>Pipelines plus industriels que les fichiers Excel.</span></li></ul></div>
+</div></div></section>
+<section id="cible"><div class="wrap">
+<span class="eyebrow rv">// Et maintenant</span>
+<h2 class="rv">Là où cette expérience s'applique</h2>
+<p class="lead rv">Mon objectif : poursuivre en finance, banque ou assurance, ou dans un secteur transversal qui a les mêmes besoins de données fiables et de maîtrise du risque.</p>
+<div class="cols">
+<div class="col b rv"><h3>BANQUE &amp; FINANCE</h3><small>Mon terrain actuel</small><span style="color:var(--mute);font-size:.92rem">KYC, conformité, risque client, qualité des référentiels, reporting réglementaire.</span></div>
+<div class="col x rv"><h3>ASSURANCE</h3><small>Même logique, autres données</small><span style="color:var(--mute);font-size:.92rem">Qualité des données contrats et clients, lutte anti-blanchiment, suivi des risques.</span></div>
+<div class="col e rv"><h3>SECTEURS TRANSVERSAUX</h3><small>Industrie, services, conseil</small><span style="color:var(--mute);font-size:.92rem">Gouvernance des données, indicateurs de qualité, amélioration continue, Lean Six Sigma.</span></div>
+</div></div></section>
+<footer id="contact"><div class="wrap">
+<span class="eyebrow">// Contact</span>
+<h2>Prochaine étape : parlons de vos données.</h2>
+<p>Je cherche un poste en CDI, ou une alternance, en Data Quality, Data Analyse ou Business Analyse, en banque, assurance, finance ou secteur transversal.</p>
+<div style="overflow-x:auto;max-width:560px;margin:22px auto"><table style="min-width:420px"><tbody><tr><th>CONTRAT</th><td>CDI (priorité) ou alternance</td></tr><tr><th>POSTES</th><td>Data Analyst · Data Quality · Business Analyst</td></tr><tr><th>SECTEURS</th><td>Banque · Assurance · Finance · Transversal</td></tr><tr><th>LIEU</th><td>Île-de-France (Pontoise)</td></tr><tr><th>DISPONIBILITÉ</th><td>Immédiate</td></tr><tr><th>DIPLÔME</th><td>Ingénieur EIGSI, promotion 2026</td></tr></tbody></table></div>
+<div class="links"><a class="btn p" href="mailto:kouferidjimouiz@gmail.com">Écrire un mail</a><a class="btn" href="https://linkedin.com/in/abdoulmouizkouferidji" rel="noopener">LinkedIn</a></div>
+<p class="mono" style="font-size:.72rem">Conçu et codé à la main · mis à jour en novembre 2026.<br>Les démonstrations utilisent des données entièrement fictives. Aucune information confidentielle d'un employeur n'est publiée ici.</p>
+</div></footer>
+
+<script>
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const $=s=>document.querySelector(s);
+/* theme */
+const root=document.documentElement;
+$('#theme').onclick=()=>{const cur=root.dataset.theme||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');root.dataset.theme=cur==='light'?'dark':'light'};
+/* keywords */
+['DATA QUALITY','KYC / AML','RISK SCORING','AUTOMATION','KPI'].forEach((w,i)=>{const s=document.createElement('span');s.textContent=w;s.style.animationDelay=(0.6+i*.18)+'s';$('#kw').appendChild(s)});
+/* reveal + counters */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(count);if(e.target.dataset.n)count(e.target);io.unobserve(e.target)}}),{threshold:.2});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+function count(el){if(el.done)return;el.done=1;const t=+el.dataset.n;if(RM){el.textContent=t;return}let v=0;const st=performance.now();(function f(n){const p=Math.min(1,(n-st)/1100);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(st)}
+/* network canvas */
+const cv=$('#net'),cx=cv.getContext('2d');let W,H,pts=[],mx=-999,my=-999;
+function size(){W=cv.width=cv.offsetWidth*devicePixelRatio;H=cv.height=cv.offsetHeight*devicePixelRatio;const n=Math.min(70,Math.floor(cv.offsetWidth/16));pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25*devicePixelRatio,vy:(Math.random()-.5)*.25*devicePixelRatio}))}
+size();addEventListener('resize',size);
+$('#hero').addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mx=(e.clientX-r.left)*devicePixelRatio;my=(e.clientY-r.top)*devicePixelRatio;
+ const f=$('#frame'),b=f.getBoundingClientRect();const dx=(e.clientX-b.left-b.width/2)/b.width,dy=(e.clientY-b.top-b.height/2)/b.height;f.style.transform=RM?'':`perspective(800px) rotateY(${dx*8}deg) rotateX(${-dy*8}deg)`});
+function col(a){const l=getComputedStyle(root).getPropertyValue('--teal').trim();return l+a}
+function draw(){cx.clearRect(0,0,W,H);const teal=getComputedStyle(root).getPropertyValue('--teal').trim();
+ cx.fillStyle=teal;cx.strokeStyle=teal;const D=140*devicePixelRatio;
+ for(const p of pts){if(!RM){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}
+  cx.globalAlpha=.5;cx.beginPath();cx.arc(p.x,p.y,1.6*devicePixelRatio,0,7);cx.fill()}
+ for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<D){cx.globalAlpha=(1-d/D)*.28;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}
+  const m=Math.hypot(pts[i].x-mx,pts[i].y-my);if(m<D*1.3){cx.globalAlpha=(1-m/(D*1.3))*.6;cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(mx,my);cx.stroke()}}
+ if(!RM)requestAnimationFrame(draw)}
+draw();
+/* lab */
+const R=[
+['Identifiant client unique',1200,'Un même client apparaît sous deux identifiants.','Doublon créé lors d\'une fusion de bases.'],
+['Pays de résidence renseigné',1200,'Le champ pays est vide ou non normalisé.','Saisie libre en amont.'],
+['Secteur d\'activité cohérent',1200,'Le code secteur contredit l\'activité déclarée.','Table de correspondance obsolète.'],
+['Héritage Head Office → Domestic',1200,'Un champ n\'a pas été propagé de l\'entité mère à la fille.','Mécanique d\'héritage non déclenchée.'],
+['Date de dernière revue valide',1200,'La date est postérieure à la date du jour ou absente.','Erreur de saisie manuelle.'],
+['Niveau de risque aligné',1200,'Le niveau enregistré diffère du niveau recalculé.','Mise à jour hors cycle KYC.'],
+['Statut du tiers à jour',1200,'Un tiers clôturé reste actif.','Clôture non répercutée.'],
+['Facteur de risque pays',1200,'Le facteur pays ne suit pas la réglementation en vigueur.','Référentiel non rafraîchi.'],
+['Rattachement d\'équipe',1200,'Un tiers n\'a pas de périmètre responsable.','Réorganisation non répercutée.'],
+['Format des adresses',1200,'Adresses non normalisées.','Sources hétérogènes.'],
+['Cohérence forme juridique',1200,'La forme juridique ne correspond pas au pays.','Mapping incomplet.'],
+['Fraîcheur des données',1200,'Donnée non mise à jour depuis plus de la durée autorisée.','Cycle de revue en retard.']];
+const start=[1,4,60,18,30,150,3,2,11,17,6,95]; // anomalies initiales (fictives)
+let st;function init(){st=R.map((r,i)=>({n:r[0],pop:r[1],a0:start[i],a:start[i],d:r[2],c:r[3]}))}
+init();let sel=-1;
+const pct=r=>(1-r.a/r.pop)*100;
+function render(){
+ $('#rules').innerHTML=st.map((r,i)=>`<div class="rule ${i===sel?'sel':''}" data-i="${i}" tabindex="0" role="button"><span class="id">R${i+1}</span><div><div class="nm">${r.n}</div><div class="bar"><i class="${pct(r)>=99?'ok':''}" style="width:${pct(r)}%"></i></div></div><span class="pc">${pct(r).toFixed(1)}%</span></div>`).join('');
+ const A=st.reduce((s,r)=>s+r.a,0),A0=st.reduce((s,r)=>s+r.a0,0),P=st.reduce((s,r)=>s+r.pop,0);
+ $('#k1').textContent=A;$('#k2').textContent=A0-A;$('#k3').textContent=((1-A/P)*100).toFixed(2)+' %';
+ if(sel>=0){$('#rt').textContent='R'+(sel+1)+' · '+st[sel].n;$('#rd').textContent=st[sel].d+' Cause racine typique : '+st[sel].c}}
+$('#rules').addEventListener('click',e=>{const r=e.target.closest('.rule');if(r){sel=+r.dataset.i;render()}});
+$('#rules').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const r=e.target.closest('.rule');if(r){e.preventDefault();sel=+r.dataset.i;render()}}});
+let busy=false;
+$('#run').onclick=async()=>{if(busy)return;busy=true;const sp=[...document.querySelectorAll('#steps span')];sp.forEach(s=>s.className='');
+ for(let i=0;i<4;i++){sp[i].className='on';await new Promise(r=>setTimeout(r,RM?0:650));
+  if(i===2){st.forEach(r=>{r.a=Math.max(0,Math.round(r.a*.35))});render()}
+  if(i===1){st.forEach(r=>{r.a=Math.max(0,r.a-Math.round(r.a*.1))});render()}
+  sp[i].className='done'}
+ busy=false};
+$('#reset').onclick=()=>{if(busy)return;init();document.querySelectorAll('#steps span').forEach(s=>s.className='');render()};
+render();
+/* risk table */
+const T=[['Tiers A','FR','Industrie','M','M'],['Tiers B','BE','Énergie','L','M'],['Tiers C','CI','Négoce','M','H'],['Tiers D','DE','Banque','L','L'],['Tiers E','BJ','Transport','H','H'],['Tiers F','MA','Services','M','M'],['Tiers G','NG','Énergie','M','H'],['Tiers H','ES','Distribution','H','M']];
+const lv={L:'Faible',M:'Moyen',H:'Élevé'};
+function tb(){const only=$('#onlyChg').checked;$('#tb').innerHTML=T.filter(t=>!only||t[3]!==t[4]).map(t=>{const c=t[3]!==t[4];return`<tr class="${c?'flag':''}"><td>${t[0]}</td><td>${t[1]}</td><td>${t[2]}</td><td><span class="pill ${t[3]}">${lv[t[3]]}</span></td><td><span class="pill ${t[4]}">${lv[t[4]]}</span></td><td class="${c?'chg':''}">${c?'→ à réévaluer':'—'}</td></tr>`}).join('')}
+$('#onlyChg').onchange=tb;tb();
+document.querySelectorAll('#mtabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#mtabs button').forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelectorAll('.mis').forEach(p=>p.classList.toggle('on',p.dataset.p===b.dataset.m))});
+/* process */
+const P=[['Comprendre','Les données clients héritées entre Head Office et Domestic Office présentent des écarts, et le risk scoring doit être recalculé en continu. Je cadre le périmètre, les règles de décision et le RACI.','Rapport : contexte et problématique'],
+['Construire','Chaîne de templates : préparation du périmètre avec contrôle des volumétries, cartographie des écarts de facteurs de risque, isolement de ceux qui changent le niveau de risque, partage par équipe.','Rapport : templates et KPI'],
+['Livrer','Mail d\'action aux parties prenantes, exclusions centralisées dans un tracker partagé, confirmation hiérarchique, puis mise à jour manuelle ou par recalcul dans le référentiel.','Rapport : circuit de validation'],
+['Convaincre','Bilan de clôture avec graphiques par équipe et par région, KPI par règle, taux de données correctes, causes racines et pistes d\'amélioration.','Rapport : indicateurs et impact']];
+const pipe=$('#pipe');pipe.innerHTML=P.map((p,i)=>`<button class="node" role="tab" aria-selected="${i===0}" data-i="${i}"><div class="dot">0${i+1}</div><span>${p[0]}</span></button>`).join('');
+function pshow(i){pipe.querySelectorAll('.node').forEach((n,j)=>n.setAttribute('aria-selected',j===i));pipe.style.setProperty('--p',(i/3*76)+'%');$('#pt').textContent=P[i][0];$('#pd').textContent=P[i][1];$('#pp').textContent='Preuve → '+P[i][2]}
+pipe.addEventListener('click',e=>{const n=e.target.closest('.node');if(n)pshow(+n.dataset.i)});pshow(0);
+})();
+</script>
+</body></html>
