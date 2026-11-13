@@ -242,9 +242,9 @@ footer h2{color:var(--ink)}
 </div></section>
 
 <section id="lab"><div class="wrap">
-<span class="eyebrow rv">// § 01 bis · Défi interactif</span>
-<h2 class="rv">Jeu de test fictif : remédiez les anomalies</h2>
-<p class="lead rv">Une simulation pédagogique d'un cycle de qualité de données. Cliquez sur une règle pour voir son anomalie type, puis lancez le cycle.</p>
+<span class="eyebrow rv">// § 01 bis · Défi interactif, sur un thème que tout le monde connaît</span>
+<h2 class="rv">Jeu de test fictif : fiabilisez le fichier clients d'une librairie en ligne</h2>
+<p class="lead rv">Même méthode que celle appliquée à SGCIB sur les données KYC, mais sur un exemple que chacun comprend : le fichier clients d'une librairie en ligne. Cliquez sur une règle pour voir son anomalie type, puis lancez le cycle.</p>
 <div class="lab rv">
 <div class="lab-top"><span class="fict">DONNÉES FICTIVES · aucune donnée réelle</span><div><button class="btn p" id="run">Lancer un cycle</button> <button class="btn" id="reset">Réinitialiser</button></div></div>
 <div class="lab-grid">
@@ -253,11 +253,11 @@ footer h2{color:var(--ink)}
 <div class="panel"><h4 id="rt">Choisissez une règle</h4><p id="rd">Chaque règle mesure la part de données conformes sur une population donnée.</p></div>
 <div class="steps" id="steps"><span>1 Scoping</span><span>2 Exclusions</span><span>3 Mass update</span><span>4 Vérification</span></div>
 <div class="kpi"><div><b id="k1">0</b>anomalies</div><div><b id="k2">0</b>remédiées</div><div><b id="k3">0 %</b>données correctes</div></div>
-<p class="mono" style="font-size:.7rem;color:var(--mute);margin-top:14px">Taux = 1 − (anomalies restantes / population totale)</p><p style="font-size:.84rem;color:var(--mute);margin-top:10px">Pourquoi jamais 100 % durablement ? Les règles sont fixes, mais les données et les facteurs de risque peuvent changer à tout moment : situation économique, géographique ou géopolitique d'un pays, actionnariat, activité. Nous les revoyons au moins chaque mois pour garder des risques à jour, et de nouvelles anomalies apparaissent. Le cycle se répète donc, et l'objectif est de rester au-dessus de 99 %.</p>
+<p class="mono" style="font-size:.7rem;color:var(--mute);margin-top:14px">Taux = 1 − (anomalies restantes / population totale)</p><p style="font-size:.84rem;color:var(--mute);margin-top:10px">Pourquoi jamais 100 % durablement ? Les règles sont fixes, mais les données bougent tout le temps : un client déménage, change d'e-mail, ferme son compte, passe commande ailleurs. On les revoit au moins chaque mois, et de nouvelles anomalies apparaissent. Le cycle se répète donc, et l'objectif est de rester au-dessus de 99 %.</p>
 </div></div>
-<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="a">Risk scoring : mois validé vs simulé</button></div>
-<p class="mono" style="font-size:.74rem;color:var(--mute)">Tous les écarts de facteurs sont listés ; seuls ceux qui changent le niveau de risque sont retenus pour la remédiation.</p>
-<div style="overflow-x:auto"><table style="min-width:560px"><thead><tr><th>TIERS</th><th>PAYS</th><th>SECTEUR</th><th>NIVEAU VALIDÉ</th><th>NIVEAU SIMULÉ</th><th></th></tr></thead><tbody id="tb"></tbody></table></div>
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="a">Score de risque de départ client : mois validé vs simulé</button></div>
+<p class="mono" style="font-size:.74rem;color:var(--mute)">Tous les écarts sont listés ; seuls ceux qui changent le niveau de risque de départ du client sont retenus pour la correction (comme en risk scoring).</p>
+<div style="overflow-x:auto"><table style="min-width:560px"><thead><tr><th>CLIENT</th><th>VILLE</th><th>RAYON PRÉFÉRÉ</th><th>RISQUE VALIDÉ</th><th>RISQUE SIMULÉ</th><th></th></tr></thead><tbody id="tb"></tbody></table></div>
 <label class="mono" style="font-size:.76rem;color:var(--mute);display:block;margin-top:14px"><input type="checkbox" id="onlyChg"> Afficher seulement les changements de niveau</label>
 </div></div></section>
 <section id="process"><div class="wrap">
@@ -377,18 +377,18 @@ function draw(){cx.clearRect(0,0,W,H);const teal=getComputedStyle(root).getPrope
 draw();
 /* lab */
 const R=[
-['Identifiant client unique',1200,'Un même client apparaît sous deux identifiants.','Doublon créé lors d\'une fusion de bases.'],
-['Pays de résidence renseigné',1200,'Le champ pays est vide ou non normalisé.','Saisie libre en amont.'],
-['Secteur d\'activité cohérent',1200,'Le code secteur contredit l\'activité déclarée.','Table de correspondance obsolète.'],
-['Héritage Head Office → Domestic',1200,'Un champ n\'a pas été propagé de l\'entité mère à la fille.','Mécanique d\'héritage non déclenchée.'],
-['Date de dernière revue valide',1200,'La date est postérieure à la date du jour ou absente.','Erreur de saisie manuelle.'],
-['Niveau de risque aligné',1200,'Le niveau enregistré diffère du niveau recalculé.','Mise à jour hors cycle KYC.'],
-['Statut du tiers à jour',1200,'Un tiers clôturé reste actif.','Clôture non répercutée.'],
-['Facteur de risque pays',1200,'Le facteur pays ne suit pas la réglementation en vigueur.','Référentiel non rafraîchi.'],
-['Rattachement d\'équipe',1200,'Un tiers n\'a pas de périmètre responsable.','Réorganisation non répercutée.'],
+['Client unique, sans doublon',1200,'Un même lecteur apparaît deux fois, sous deux numéros de client.','Doublon créé lors de la fusion de deux fichiers.'],
+['Ville de livraison renseignée',1200,'Le champ ville est vide ou écrit de plusieurs façons.','Saisie libre sur le formulaire.'],
+['Rayon préféré cohérent',1200,'Le rayon enregistré contredit l\'historique d\'achats.','Table de correspondance des rayons obsolète.'],
+['Compte famille ↔ comptes membres',1200,'L\'adresse du foyer n\'a pas été reprise sur le compte d\'un membre.','Règle de propagation non déclenchée.'],
+['Date de dernière commande valide',1200,'La date est dans le futur ou absente.','Erreur de saisie ou de synchronisation.'],
+['Risque de départ à jour',1200,'Le niveau enregistré diffère du niveau recalculé.','Mise à jour faite hors du cycle mensuel.'],
+['Statut du compte à jour',1200,'Un compte fermé reste actif.','Fermeture non répercutée.'],
+['Frais de port du pays à jour',1200,'Le tarif ne suit pas la grille en vigueur.','Référentiel de tarifs non rafraîchi.'],
+['Conseiller référent assigné',1200,'Un client n\'a pas de conseiller responsable.','Réorganisation de l\'équipe non répercutée.'],
 ['Format des adresses',1200,'Adresses non normalisées.','Sources hétérogènes.'],
-['Cohérence forme juridique',1200,'La forme juridique ne correspond pas au pays.','Mapping incomplet.'],
-['Fraîcheur des données',1200,'Donnée non mise à jour depuis plus de la durée autorisée.','Cycle de revue en retard.']];
+['Code postal cohérent avec la ville',1200,'Le code postal ne correspond pas à la ville.','Correspondance incomplète.'],
+['Fraîcheur des données',1200,'Fiche non mise à jour depuis plus de la durée autorisée.','Revue périodique en retard.']];
 const start=[1,4,60,18,30,150,3,2,11,17,6,95]; // anomalies initiales (fictives)
 let st;function init(){st=R.map((r,i)=>({n:r[0],pop:r[1],a0:start[i],a:start[i],d:r[2],c:r[3]}))}
 init();let sel=-1;
@@ -410,7 +410,7 @@ $('#run').onclick=async()=>{if(busy)return;busy=true;const sp=[...document.query
 $('#reset').onclick=()=>{if(busy)return;init();document.querySelectorAll('#steps span').forEach(s=>s.className='');render()};
 render();
 /* risk table */
-const T=[['Tiers A','FR','Industrie','M','M'],['Tiers B','BE','Énergie','L','M'],['Tiers C','CI','Négoce','M','H'],['Tiers D','DE','Banque','L','L'],['Tiers E','BJ','Transport','H','H'],['Tiers F','MA','Services','M','M'],['Tiers G','NG','Énergie','M','H'],['Tiers H','ES','Distribution','H','M']];
+const T=[['Client A','Lyon','Romans','M','M'],['Client B','Lille','BD','L','M'],['Client C','Nantes','Jeunesse','M','H'],['Client D','Rennes','Cuisine','L','L'],['Client E','Paris','Polars','H','H'],['Client F','Toulouse','Sciences','M','M'],['Client G','Bordeaux','Voyage','M','H'],['Client H','Marseille','Poche','H','M']];
 const lv={L:'Faible',M:'Moyen',H:'Élevé'};
 function tb(){const only=$('#onlyChg').checked;$('#tb').innerHTML=T.filter(t=>!only||t[3]!==t[4]).map(t=>{const c=t[3]!==t[4];return`<tr class="${c?'flag':''}"><td>${t[0]}</td><td>${t[1]}</td><td>${t[2]}</td><td><span class="pill ${t[3]}">${lv[t[3]]}</span></td><td><span class="pill ${t[4]}">${lv[t[4]]}</span></td><td class="${c?'chg':''}">${c?'→ à réévaluer':'—'}</td></tr>`}).join('')}
 $('#onlyChg').onchange=tb;tb();
