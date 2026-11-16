@@ -108,6 +108,29 @@ h1 span:nth-child(2) b{animation-delay:.15s;color:var(--teal)}
 .fict{font-family:var(--f-m);font-size:.72rem;color:var(--amber);border:1px dashed var(--amber);padding:4px 10px;border-radius:6px}
 .lab-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}
 @media(max-width:860px){.lab-grid{grid-template-columns:1fr}}
+.lab-grid>*,.rule>div,.grid>*,.wrap>*{min-width:0}
+@media(max-width:520px){
+ .wrap{padding-inline:18px}
+ .rule{grid-template-columns:24px 1fr 52px;gap:8px}
+ .rule .nm{font-size:.8rem}
+ h1{font-size:clamp(2rem,9vw,2.6rem)}
+ h2{font-size:clamp(1.5rem,6.6vw,2rem)}
+ .portrait{max-width:300px}
+ .portrait .t1{left:0}.portrait .t2{right:0}.portrait .t3{left:0}
+ .tabs,.tabs2{flex-wrap:wrap}
+ .btn{padding:11px 18px}
+ table{font-size:.72rem}
+ table[style*="min-width:560px"]{min-width:0!important}
+ table[style*="min-width:560px"] th,table[style*="min-width:560px"] td{padding:7px 4px}
+ table[style*="min-width:560px"] th:nth-child(2),table[style*="min-width:560px"] td:nth-child(2){display:none}
+ table[style*="min-width:420px"]{min-width:0!important}
+ .badge,.tag,.pill{white-space:nowrap}
+ table[style*="min-width:560px"] td:first-child{white-space:nowrap}
+ table[style*="min-width:560px"] td:last-child{font-size:.62rem;line-height:1.2;white-space:normal;overflow-wrap:anywhere;min-width:44px}
+ table[style*="min-width:560px"] td span,table[style*="min-width:560px"] td .tg{font-size:.62rem;padding:2px 6px}
+ #lab .wrap>div,.lab-grid>div{padding-inline:0}
+}
+html,body{max-width:100%;overflow-x:hidden}
 .rule{display:grid;grid-template-columns:28px 1fr 64px;gap:10px;align-items:center;padding:7px 0;cursor:pointer;border-radius:8px}
 .rule:hover,.rule.sel{background:color-mix(in srgb,var(--teal) 10%,transparent)}
 .rule .id{font-family:var(--f-m);font-size:.72rem;color:var(--mute)}
